@@ -8,6 +8,8 @@ app.use(bodyParser.text({ limit: "10mb" }));
 
 // Receive image from iPhone/React
 app.post("/image", (req, res) => {
+    console.log("POST received!");
+    console.log("Body length:", req.body.length);
     latestImage = Buffer.from(req.body.split(",")[1], "base64");
     res.sendStatus(200);
 });
